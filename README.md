@@ -3,20 +3,7 @@
 A performance comparison test on different algorithms implemented in Python, C,
 and Zig.
 
-## `app.py`
-
-`app.py` is a simple application used to run a number of tests utilizing the
-specified algorithm and language implementation. The application will load the
-C and Zig libraries using `ctypes`, run the algorithm a number of times, and
-report the following statistics:
-
-- Overall run time
-- Average time of each iteration
-- Fastest iteration time
-- Slowest iteration time
-- Median iteration time
-
-The application is able to be configured by utilizing the CLI arguments:
+## Usage
 
 ```sh
 usage: app.py [-h] [--num-iterations NUM_ITERATIONS] [--num-elements NUM_ELEMENTS] [--algorithm {c_quicksort,py_quicksort}]
@@ -31,11 +18,14 @@ options:
                         The algorithm to test.
 ```
 
-## App
+## `app.py`
 
 [Source File](app.py)
 
-This application takes in the CLI arguments, creates a `TestReport`, creates randomized test data and passes that data to the algorithm. The `TestReport` is then saved, which saves data related to the tests in JSON format into a `reports` subdirectory.
+This application takes in the CLI arguments, creates a `TestReport`, creates
+randomized test data and passes that data to the algorithm. The `TestReport` is
+then saved, which saves data related to the tests in JSON format into a `reports`
+subdirectory.
 
 ## Sorting Algorithms
 
