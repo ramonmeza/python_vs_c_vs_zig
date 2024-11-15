@@ -55,10 +55,10 @@ This application takes in the CLI arguments, creates a `TestReport`, creates ran
   "algorithm": "py_quicksort",
   "num_iterations": 100,
   "num_elements": 1000,
-  "total_elapsed_time": 0.273996900068596,
-  "average": 0.00273996900068596,
-  "minimum": 0.002459099981933832,
-  "maximum": 0.004111699992790818
+  "total_elapsed_time": 0.09425779998491635,
+  "average": 0.0009425779998491634,
+  "minimum": 0.0008194000001822133,
+  "maximum": 0.0014331999991554767
   // ...
 }
 ```
@@ -72,10 +72,10 @@ This application takes in the CLI arguments, creates a `TestReport`, creates ran
   "algorithm": "c_quicksort",
   "num_iterations": 100,
   "num_elements": 1000,
-  "total_elapsed_time": 0.03397339989896864,
-  "average": 0.0003397339989896864,
-  "minimum": 0.00025779998395591974,
-  "maximum": 0.000526399991940707
+  "total_elapsed_time": 0.013687299979210366,
+  "average": 0.00013687299979210367,
+  "minimum": 0.00012149999747634865,
+  "maximum": 0.0002793000021483749
   // ...
 }
 ```
