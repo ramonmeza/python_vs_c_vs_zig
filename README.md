@@ -3,7 +3,16 @@
 A performance comparison test on different algorithms implemented in Python, C,
 and Zig.
 
-## Usage
+## `app.py`
+
+[Source File](app.py)
+
+This application takes in the CLI arguments, creates a `TestReport`, creates
+randomized test data and passes that data to the algorithm. The `TestReport` is
+then saved, which saves data related to the tests in JSON format into a `reports`
+subdirectory.
+
+### CLI Usage
 
 ```sh
 usage: app.py [-h] [--num-iterations NUM_ITERATIONS] [--num-elements NUM_ELEMENTS] [--algorithm {c_quicksort,py_quicksort}]
@@ -18,14 +27,21 @@ options:
                         The algorithm to test.
 ```
 
-## `app.py`
+## `build.zig`
 
-[Source File](app.py)
+You will need to build the C libraries and Zig libraries using `zig build`. For 
+more advanced usage, utilize the CLI arguments.
 
-This application takes in the CLI arguments, creates a `TestReport`, creates
-randomized test data and passes that data to the algorithm. The `TestReport` is
-then saved, which saves data related to the tests in JSON format into a `reports`
-subdirectory.
+### CLI Usage
+```sh
+Usage: zig build [steps] [options]
+
+Steps:
+  install (default)            Copy build artifacts to prefix path
+  uninstall                    Remove build artifacts from prefix path
+  c_quicksort                  Create the c_quicksort shared library.
+  zig_quicksort                Create the zig_quicksort shared library.
+```
 
 ## Sorting Algorithms
 
@@ -36,7 +52,7 @@ subdirectory.
 | `num_iterations` | 100   |
 | `num_elements`   | 1000  |
 
-#### Python Results
+#### `PythonImpl` Results
 
 [Source File](src/quicksort.py)
 
@@ -49,11 +65,10 @@ subdirectory.
   "average": 0.0009425779998491634,
   "minimum": 0.0008194000001822133,
   "maximum": 0.0014331999991554767
-  // ...
 }
 ```
 
-#### C implementation
+#### `CImpl` Results
 
 [Source File](src/quicksort.c)
 
@@ -66,6 +81,13 @@ subdirectory.
   "average": 0.00013687299979210367,
   "minimum": 0.00012149999747634865,
   "maximum": 0.0002793000021483749
-  // ...
 }
+```
+
+#### `ZigImpl` Results
+
+[Source File](src/quicksort.zig)
+
+```json
+// @todo
 ```
