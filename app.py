@@ -5,7 +5,6 @@ import json
 import os
 import random
 import sys
-import time
 
 from src import quicksort
 
@@ -32,7 +31,7 @@ class TestReport:
             os.mkdir("reports")
 
         filename = f'reports/{self.algorithm}_report_{timestamp.strftime("%d-%m-%Y_%H%M%S")}.json'
-        print(f'Saving test report to {filename}')
+        print(f"Saving test report to {filename}")
         with open(
             filename,
             "w",

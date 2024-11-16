@@ -1,6 +1,6 @@
 const std = @import("std");
 
-pub fn quicksort(data: []f32) void {
+pub fn quicksort(data: []f32) callconv(.C) void {
     if (data.len == 0) return; // Handle edge case for empty array
     _quicksort(data, 0, @as(i32, @intCast(data.len)) - 1);
 }
