@@ -62,11 +62,11 @@ Steps:
 {
   "algorithm": "py_quicksort",
   "num_iterations": 100,
-  "num_elements": 100,
-  "total_elapsed_time": 0.005717000021832064,
-  "average": 5.717000021832064e-5,
-  "minimum": 5.169999349163845e-5,
-  "maximum": 6.859999848529696e-5
+  "num_elements": 1000,
+  "total_elapsed_time": 0.09324749999359483,
+  "average": 0.0009324749999359483,
+  "minimum": 0.0007798000006005168,
+  "maximum": 0.0015515000050072558
 }
 ```
 
@@ -78,11 +78,11 @@ Steps:
 {
   "algorithm": "c_quicksort",
   "num_iterations": 100,
-  "num_elements": 100,
-  "total_elapsed_time": 0.0009697000132291578,
-  "average": 9.697000132291578e-6,
-  "minimum": 8.499999239575118e-6,
-  "maximum": 2.8599999495781958e-5
+  "num_elements": 1000,
+  "total_elapsed_time": 0.01527510002051713,
+  "average": 0.0001527510002051713,
+  "minimum": 0.00012479999713832512,
+  "maximum": 0.00027260000206297264
 }
 ```
 
@@ -94,10 +94,10 @@ Steps:
 {
   "algorithm": "zig_quicksort",
   "num_iterations": 100,
-  "num_elements": 100,
-  "total_elapsed_time": 0.0009589999754098244,
-  "average": 9.589999754098244e-6,
-  "minimum": 8.200004231184721e-6,
-  "maximum": 2.7099995349999517e-5
+  "num_elements": 1000,
+  "total_elapsed_time": 0.013725400021940004,
+  "average": 0.00013725400021940003,
+  "minimum": 0.00012479999713832512,
+  "maximum": 0.00026839999918593094
 }
 ```
