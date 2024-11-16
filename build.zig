@@ -17,7 +17,7 @@ pub fn build(b: *std.Build) void {
     c_quicksort.linkLibC();
 
     const c_quicksort_artifact = b.addInstallArtifact(c_quicksort, .{});
-    const c_quicksort_install = b.step("c_quicksort", "Create the c_quicksort shared library.");
+    const c_quicksort_install = b.step("c_quicksort", "Build the c_quicksort shared library.");
     c_quicksort_install.dependOn(&c_quicksort_artifact.step);
 
     // zig_quicksort
@@ -29,6 +29,11 @@ pub fn build(b: *std.Build) void {
     });
 
     const zig_quicksort_artifact = b.addInstallArtifact(zig_quicksort, .{});
-    const zig_quicksort_install = b.step("zig_quicksort", "Create the zig_quicksort shared library.");
+    const zig_quicksort_install = b.step("zig_quicksort", "Build the zig_quicksort shared library.");
     zig_quicksort_install.dependOn(&zig_quicksort_artifact.step);
+
+    // all
+    const install_all = b.step("all", "Build all libraries.");
+    install_all.dependOn(&c_quicksort_artifact.step);
+    install_all.dependOn(&zig_quicksort_artifact.step);
 }

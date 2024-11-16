@@ -31,5 +31,6 @@ int _partition(float *data, int lo, int hi) {
     float tmp = data[i + 1];
     data[i + 1] = data[hi];
     data[hi] = tmp;
+    
     return i + 1;
 }

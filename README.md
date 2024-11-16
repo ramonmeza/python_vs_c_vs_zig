@@ -15,7 +15,7 @@ subdirectory.
 ### CLI Usage
 
 ```sh
-usage: app.py [-h] [--num-iterations NUM_ITERATIONS] [--num-elements NUM_ELEMENTS] [--algorithm {c_quicksort,py_quicksort}]
+usage: app.py [-h] [--num-iterations NUM_ITERATIONS] [--num-elements NUM_ELEMENTS] [--algorithm {c_quicksort,py_quicksort,zig_quicksort}]
 
 options:
   -h, --help            show this help message and exit
@@ -23,24 +23,26 @@ options:
                         Number of iterations to run for each algorithm.
   --num-elements, -e NUM_ELEMENTS
                         Number of elements in the test data used as input for each algorithm.
-  --algorithm, -a {c_quicksort,py_quicksort}
+  --algorithm, -a {c_quicksort,py_quicksort,zig_quicksort}
                         The algorithm to test.
 ```
 
 ## `build.zig`
 
-You will need to build the C libraries and Zig libraries using `zig build`. For 
+You will need to build the C libraries and Zig libraries using `zig build`. For
 more advanced usage, utilize the CLI arguments.
 
 ### CLI Usage
+
 ```sh
 Usage: zig build [steps] [options]
 
 Steps:
   install (default)            Copy build artifacts to prefix path
   uninstall                    Remove build artifacts from prefix path
-  c_quicksort                  Create the c_quicksort shared library.
-  zig_quicksort                Create the zig_quicksort shared library.
+  c_quicksort                  Build the c_quicksort shared library.
+  zig_quicksort                Build the zig_quicksort shared library.
+  all                          Build all libraries.
 ```
 
 ## Sorting Algorithms
@@ -60,11 +62,11 @@ Steps:
 {
   "algorithm": "py_quicksort",
   "num_iterations": 100,
-  "num_elements": 1000,
-  "total_elapsed_time": 0.09425779998491635,
-  "average": 0.0009425779998491634,
-  "minimum": 0.0008194000001822133,
-  "maximum": 0.0014331999991554767
+  "num_elements": 100,
+  "total_elapsed_time": 0.005717000021832064,
+  "average": 5.717000021832064e-5,
+  "minimum": 5.169999349163845e-5,
+  "maximum": 6.859999848529696e-5
 }
 ```
 
@@ -76,11 +78,11 @@ Steps:
 {
   "algorithm": "c_quicksort",
   "num_iterations": 100,
-  "num_elements": 1000,
-  "total_elapsed_time": 0.013687299979210366,
-  "average": 0.00013687299979210367,
-  "minimum": 0.00012149999747634865,
-  "maximum": 0.0002793000021483749
+  "num_elements": 100,
+  "total_elapsed_time": 0.0009697000132291578,
+  "average": 9.697000132291578e-6,
+  "minimum": 8.499999239575118e-6,
+  "maximum": 2.8599999495781958e-5
 }
 ```
 
@@ -89,5 +91,13 @@ Steps:
 [Source File](src/quicksort.zig)
 
 ```json
-// @todo
+{
+  "algorithm": "zig_quicksort",
+  "num_iterations": 100,
+  "num_elements": 100,
+  "total_elapsed_time": 0.0009589999754098244,
+  "average": 9.589999754098244e-6,
+  "minimum": 8.200004231184721e-6,
+  "maximum": 2.7099995349999517e-5
+}
 ```

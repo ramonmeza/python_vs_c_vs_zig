@@ -16,7 +16,7 @@
         "--num-elements",
         "1000",
         "--algorithm",
-        "py_quicksort"
+        "zig_quicksort"
       ]
     }
   ]

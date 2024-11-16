@@ -11,16 +11,17 @@ from src import quicksort
 
 
 algorithms = {
-    "py_quicksort": quicksort.PythonImpl.quicksort,
     "c_quicksort": quicksort.CImpl.quicksort,
+    "py_quicksort": quicksort.PythonImpl.quicksort,
+    "zig_quicksort": quicksort.CImpl.quicksort,
 }
 
 
 @dataclasses.dataclass
 class TestReport:
+    algorithm: str = "None"
     num_iterations: int = 0
     num_elements: int = 0
-    algorithm: str = "None"
     input_test_data: list[float] = dataclasses.field(default_factory=lambda: [])
     output_test_data: list[float] = dataclasses.field(default_factory=lambda: [])
     results: list[float] = dataclasses.field(default_factory=lambda: [])
@@ -30,8 +31,10 @@ class TestReport:
         if not os.path.exists("reports"):
             os.mkdir("reports")
 
+        filename = f'reports/{self.algorithm}_report_{timestamp.strftime("%d-%m-%Y_%H%M%S")}.json'
+        print(f'Saving test report to {filename}')
         with open(
-            f'reports/{self.algorithm}_report_{timestamp.strftime("%d-%m-%Y_%H%M%S")}.json',
+            filename,
             "w",
         ) as fp:
             json.dump(self._to_dict(), fp, indent=4)
@@ -101,6 +104,7 @@ def main(num_iterations: int, algorithm: str, num_elements: int) -> int:
         test_report.results.append(elapsed)
 
     # report results
+    print(str(test_report))
     test_report.save()
 
     return 0
@@ -137,6 +141,7 @@ if __name__ == "__main__":
         choices=[
             "c_quicksort",
             "py_quicksort",
+            "zig_quicksort",
         ],
         type=str,
         required=False,
