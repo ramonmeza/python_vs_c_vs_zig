@@ -101,3 +101,10 @@ Steps:
   "maximum": 0.00026839999918593094
 }
 ```
+
+## Join the Conversation
+
+If you have comments or suggestions, or just want to lurk around the thread for
+this repo, check it out on [Ziggit](https://ziggit.dev/t/comparing-python-zig-and-c/6883).
+
+https://ziggit.dev/t/comparing-python-zig-and-c/6883
