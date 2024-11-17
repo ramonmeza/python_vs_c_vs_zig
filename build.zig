@@ -36,4 +36,15 @@ pub fn build(b: *std.Build) void {
     const install_all = b.step("all", "Build all libraries.");
     install_all.dependOn(&c_quicksort_artifact.step);
     install_all.dependOn(&zig_quicksort_artifact.step);
+
+    // run all algorithms via app.py
+    const run_step = b.step("run", "Run the algorithms and gather results.");
+    run_step.dependOn(&zig_quicksort_artifact.step);
+    run_step.dependOn(&c_quicksort_artifact.step);
+    const algorithm = &.{ "c_quicksort", "zig_quicksort", "py_quicksort" };
+    inline for (algorithm) |algo| {
+        const run_args: []const []const u8 = &.{ "python", "./app.py", "--num-iterations=10", "--num-elements=100000", "--algorithm=" ++ algo };
+        const system_cmd = b.addSystemCommand(run_args);
+        run_step.dependOn(&system_cmd.step);
+    }
 }
